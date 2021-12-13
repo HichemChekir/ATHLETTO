@@ -1,6 +1,5 @@
-import 'dart:html';
-import 'dart:io';
 
+import 'workouts_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -50,7 +49,8 @@ class _home_screenState extends State<home_screen> {
           ),
         ),
       ),
-      body: Column(
+      body: SingleChildScrollView(
+      child: Column(
         children: [
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -141,9 +141,9 @@ class _home_screenState extends State<home_screen> {
                   ),
                   CarouselSlider(
                     items: [
-                      item('Exercise1', 'assets/images/image1.jpg'),
-                      item('Exercise2', 'assets/images/image2.jpg'),
-                      item('Exercise3', 'assets/images/image3.jpg'),
+                      item('Workout1', 'assets/images/image1.jpg'),
+                      item('Workout2', 'assets/images/image2.jpg'),
+                      item('Workout3', 'assets/images/image3.jpg'),
                     ],
                     options: CarouselOptions(
                         height: 150.0,
@@ -184,9 +184,9 @@ class _home_screenState extends State<home_screen> {
                   ),
                   CarouselSlider(
                     items: [
-                      item('Exercise1', 'assets/images/image1.jpg'),
-                      item('Exercise2', 'assets/images/image2.jpg'),
-                      item('Exercise3', 'assets/images/image3.jpg'),
+                      item('Workout1', 'assets/images/image1.jpg'),
+                      item('Workout2', 'assets/images/image2.jpg'),
+                      item('Workout3', 'assets/images/image3.jpg'),
                     ],
                     options: CarouselOptions(
                         height: 150.0,
@@ -227,9 +227,17 @@ class _home_screenState extends State<home_screen> {
                   ),
                   CarouselSlider(
                     items: [
-                      item('Exercise1', 'assets/images/image1.jpg'),
-                      item('Exercise2', 'assets/images/image2.jpg'),
-                      item('Exercise3', 'assets/images/image3.jpg'),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => workouts_page1()),
+                            );
+                          },
+                          child: item('Workout1', 'assets/images/image1.jpg')),
+                      item('Workout2', 'assets/images/image2.jpg'),
+                      item('Workout3', 'assets/images/image3.jpg'),
                     ],
                     options: CarouselOptions(
                         height: 150.0,
@@ -249,6 +257,6 @@ class _home_screenState extends State<home_screen> {
       ),
         ],
       ),
-    );
+    ));
   }
 }

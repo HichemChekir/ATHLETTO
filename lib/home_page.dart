@@ -1,9 +1,9 @@
-import 'dart:html';
-import 'dart:io';
 
+import 'workout_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'workouts_page1.dart';
 
 class home_screen extends StatefulWidget {
   const home_screen({Key key}) : super(key: key);
@@ -74,7 +74,15 @@ class _home_screenState extends State<home_screen> {
                   ),
                   CarouselSlider(
                     items: [
-                      item('Workout1', 'assets/images/image1.jpg'),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => workouts_page1()),
+                            );
+                          },
+                          child: item('Workout1', 'assets/images/image1.jpg')),
                       item('Workout2', 'assets/images/image2.jpg'),
                       item('Workout3', 'assets/images/image3.jpg'),
                     ],
