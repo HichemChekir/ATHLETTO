@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'record_page.dart';
 
 class workouts_page1 extends StatefulWidget {
   const workouts_page1({Key key}) : super(key: key);
@@ -60,7 +61,12 @@ class _workouts_page1State extends State<workouts_page1> {
                 child: Text('Workouts'),
               ),
               FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => record_page()),
+                    );
+                },
                 color: Colors.grey,
                 child: Text('Records'),
               ),
