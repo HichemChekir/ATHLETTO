@@ -1,6 +1,7 @@
 # athletto
 
-A new Flutter project.
+A new Flutter project. This is part of the mobile development project in my school (Sup'Com).
+Its goal is to teach us the mobile development process from beginning to end.
 
 ## Getting Started
 

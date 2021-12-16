@@ -70,6 +70,9 @@ class _record_pageState extends State<record_page> {
             Container(
               child: Card(
                 color: Colors.grey[500],
+                child: Row(
+                  
+                )
               ),
               height: 50,
             )
