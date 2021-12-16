@@ -51,7 +51,7 @@ class _Sign_InState extends State<Sign_In> {
                 height: 250,
                 width: 350,
                 color: Colors.grey[400],
-                // padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                // padding: EdgeInsets.fromLTRB(10, 0, 10, 0)
                 child: Center(
                   child: Container(
                     color: Colors.grey[200],
