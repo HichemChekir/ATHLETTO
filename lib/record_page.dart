@@ -87,6 +87,48 @@ class _record_pageState extends State<record_page> {
                 ]),
               ),
               height: 250,
+            ),
+            Container(
+              child: Card(
+                color: Colors.grey[600],
+                child: Column(children: [
+                  Row(children: [
+                    Container(
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage("assets/images/image1.jpg"),
+                        radius: 30,
+                      ),
+                      height: 60,
+                      width: 100,
+                    ),
+                    Text('BenchPress'),
+                  ]),
+                Image(image: AssetImage('assets/images/graph.jpg'),
+                height: 150,)
+                ]),
+              ),
+              height: 250,
+            ),
+            Container(
+              child: Card(
+                color: Colors.grey[600],
+                child: Column(children: [
+                  Row(children: [
+                    Container(
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage("assets/images/image1.jpg"),
+                        radius: 30,
+                      ),
+                      height: 60,
+                      width: 100,
+                    ),
+                    Text('BenchPress'),
+                  ]),
+                Image(image: AssetImage('assets/images/graph.jpg'),
+                height: 150,)
+                ]),
+              ),
+              height: 250,
             )
           ],
         ),
