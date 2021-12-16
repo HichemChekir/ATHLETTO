@@ -25,6 +25,11 @@ class _record_pageState extends State<record_page> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
+        child: Icon(Icons.add),
+        onPressed: () {},
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -59,6 +64,15 @@ class _record_pageState extends State<record_page> {
                 ),
               ],
             ),
+            SizedBox(
+              width: 40,
+            ),
+            Container(
+              child: Card(
+                color: Colors.grey[500],
+              ),
+              height: 50,
+            )
           ],
         ),
       ),
