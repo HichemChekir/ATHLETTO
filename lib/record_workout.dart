@@ -35,8 +35,8 @@ class _record_workoutState extends State<record_workout> {
         child: Icon(Icons.add),
         onPressed: () {},
       ),
-      body: Center(
-        child: Column(
+      body: 
+        Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Bench Press'),
@@ -64,6 +64,7 @@ class _record_workoutState extends State<record_workout> {
               },
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 RaisedButton(
                   onPressed: () {},
@@ -84,23 +85,34 @@ class _record_workoutState extends State<record_workout> {
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Set 1: '),
                 SizedBox(
                   height: 51,
-                  width: 50,
+                  width: 150,
                   child: SpinBox(
                     min: 0,
                     max: 10,
-                    decoration: InputDecoration(labelText: 'Basic'),
+                    value: 1,
                     onChanged: (value) => print(value),
                   ),
-                )
+                ),
+                SizedBox(
+                  height: 51,
+                  width: 150,
+                  child: SpinBox(
+                    min: 0,
+                    max: 10,
+                    value: 1,
+                    onChanged: (value) => print(value),
+                  ),
+                ),
               ],
             ),
           ],
         ),
-      ),
+      
     );
   }
 }
