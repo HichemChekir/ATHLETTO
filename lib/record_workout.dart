@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class record_workout extends StatefulWidget {
   const record_workout({Key key}) : super(key: key);
@@ -7,49 +8,61 @@ class record_workout extends StatefulWidget {
   _record_workoutState createState() => _record_workoutState();
 }
 
-class _record_workoutState extends State<record_workout> {
-  DateTime _dateTime;
+DateTime _dateTime;
+DateFormat formatter = DateFormat('dd-MM-yyyy');
 
+class _record_workoutState extends State<record_workout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
-        appBar: AppBar(
-          backgroundColor: Colors.grey[900],
-          title: Center(
-            child: Text(
-              'ATHLETTO',
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.grey[500],
-              ),
+      backgroundColor: Colors.grey,
+      appBar: AppBar(
+        backgroundColor: Colors.grey[900],
+        title: Center(
+          child: Text(
+            'ATHLETTO',
+            style: TextStyle(
+              fontSize: 20.0,
+              color: Colors.grey[500],
             ),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.black,
-          child: Icon(Icons.add),
-          onPressed: () {},
-        ),
-        body: Column(
-          children: [
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
+        child: Icon(Icons.add),
+        onPressed: () {},
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
             Text(_dateTime == null
-                ? 'Nothing picked yet'
-                : _dateTime.toString()),
+                ? 'Nothing has been picked yet'
+                : formatter.format(_dateTime)),
             RaisedButton(
+              child: Text('Pick a date'),
               onPressed: () {
                 showDatePicker(
                         context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(2001),
+                        initialDate:
+                            _dateTime == null ? DateTime.now() : _dateTime,
+                        firstDate: DateTime(1999),
                         lastDate: DateTime(2222))
-                    .then((date) {
-                  _dateTime = date;
-                });
+                    .then(
+                  (date) {
+                    setState(
+                      () {
+                        _dateTime = date;
+                      },
+                    );
+                  },
+                );
               },
-              child: Text('Pick TIME'),
             )
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
