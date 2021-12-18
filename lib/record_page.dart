@@ -1,3 +1,4 @@
+import 'package:athletto/record_workout.dart';
 import 'package:athletto/workouts_page1.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,12 @@ class _record_pageState extends State<record_page> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.black,
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => record_workout()),
+          );
+        },
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -82,8 +88,10 @@ class _record_pageState extends State<record_page> {
                     ),
                     Text('BenchPress'),
                   ]),
-                Image(image: AssetImage('assets/images/graph.jpg'),
-                height: 150,)
+                  Image(
+                    image: AssetImage('assets/images/graph.jpg'),
+                    height: 150,
+                  )
                 ]),
               ),
               height: 250,
@@ -103,8 +111,10 @@ class _record_pageState extends State<record_page> {
                     ),
                     Text('BenchPress'),
                   ]),
-                Image(image: AssetImage('assets/images/graph.jpg'),
-                height: 150,)
+                  Image(
+                    image: AssetImage('assets/images/graph.jpg'),
+                    height: 150,
+                  )
                 ]),
               ),
               height: 250,
@@ -124,8 +134,10 @@ class _record_pageState extends State<record_page> {
                     ),
                     Text('BenchPress'),
                   ]),
-                Image(image: AssetImage('assets/images/graph.jpg'),
-                height: 150,)
+                  Image(
+                    image: AssetImage('assets/images/graph.jpg'),
+                    height: 150,
+                  )
                 ]),
               ),
               height: 250,

@@ -7,7 +7,7 @@ import 'record_workout.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: record_page(),
+    home: home_screen(),
   ));
 }
 
