@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'home_page_modified.dart';
 import 'sign_in.dart';
 import 'record_workout.dart';
-import 'sign_up.dart';
 
 void main() {
   runApp(MaterialApp(
