@@ -13,6 +13,7 @@ class _record_pageState extends State<record_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey,
       appBar: AppBar(
         backgroundColor: Colors.grey[900],
@@ -37,6 +38,7 @@ class _record_pageState extends State<record_page> {
         },
       ),
       body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Column(
           children: [
             Row(
