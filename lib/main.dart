@@ -1,3 +1,4 @@
+import 'package:athletto/Wrapper.dart';
 import 'package:athletto/record_page.dart';
 import 'package:athletto/workouts_page1.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import 'record_workout.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Sign_In(),
+    home: Wrapper(),
   ));
 }
 
