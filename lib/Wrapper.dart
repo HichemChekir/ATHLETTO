@@ -1,4 +1,4 @@
-import 'package:athletto/home_page_modified.dart';
+import 'package:athletto/screens/home/home_page_modified.dart';
 import 'package:flutter/material.dart';
 
 

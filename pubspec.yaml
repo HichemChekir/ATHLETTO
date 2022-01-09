@@ -32,8 +32,8 @@ dependencies:
   flutter_login: ^1.0.13
   flutter_spinbox: ^0.7.0
   google_fonts: ^2.1.0
-  firebase_auth: ^0.14.0+5
-  cloud_firestore: ^0.12.9+4
+  firebase_auth: ^3.3.4
+  cloud_firestore: ^3.1.5
 
 dev_dependencies:
   flutter_test:

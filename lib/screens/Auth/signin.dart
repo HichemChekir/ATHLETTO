@@ -1,4 +1,4 @@
-import 'package:athletto/workouts_page1.dart';
+import 'package:athletto/screens/other/workouts_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:carousel_slider/carousel_slider.dart';

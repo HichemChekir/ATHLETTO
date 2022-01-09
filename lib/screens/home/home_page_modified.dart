@@ -1,8 +1,8 @@
-import 'workouts_page1.dart';
+import '/screens/other/workouts_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'record_page.dart';
+import '/screens/other/record_page.dart';
 
 class home_screen extends StatefulWidget {
   const home_screen({Key key}) : super(key: key);

@@ -1,5 +1,5 @@
-import 'package:athletto/record_workout.dart';
-import 'package:athletto/workouts_page1.dart';
+import 'package:athletto/screens/other/record_workout.dart';
+import 'package:athletto/screens/other/workouts_page1.dart';
 import 'package:flutter/material.dart';
 
 class record_page extends StatefulWidget {
