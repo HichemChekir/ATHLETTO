@@ -1,3 +1,4 @@
+import 'package:athletto/models/Exercices.dart';
 import 'package:athletto/screens/other/record_workout.dart';
 import 'package:athletto/screens/other/workouts_page1.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,8 @@ class record_page extends StatefulWidget {
 class _record_pageState extends State<record_page> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey,
@@ -75,78 +78,51 @@ class _record_pageState extends State<record_page> {
             SizedBox(
               width: 40,
             ),
-            Container(
-              child: Card(
-                color: Colors.grey[600],
-                child: Column(children: [
-                  Row(children: [
-                    Container(
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/image1.jpg"),
-                        radius: 30,
-                      ),
-                      height: 60,
-                      width: 100,
-                    ),
-                    Text('BenchPress'),
-                  ]),
-                  Image(
-                    image: AssetImage('assets/images/graph.jpg'),
-                    height: 150,
-                  )
-                ]),
-              ),
-              height: 250,
-            ),
-            Container(
-              child: Card(
-                color: Colors.grey[600],
-                child: Column(children: [
-                  Row(children: [
-                    Container(
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/image1.jpg"),
-                        radius: 30,
-                      ),
-                      height: 60,
-                      width: 100,
-                    ),
-                    Text('BenchPress'),
-                  ]),
-                  Image(
-                    image: AssetImage('assets/images/graph.jpg'),
-                    height: 150,
-                  )
-                ]),
-              ),
-              height: 250,
-            ),
-            Container(
-              child: Card(
-                color: Colors.grey[600],
-                child: Column(children: [
-                  Row(children: [
-                    Container(
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/image1.jpg"),
-                        radius: 30,
-                      ),
-                      height: 60,
-                      width: 100,
-                    ),
-                    Text('BenchPress'),
-                  ]),
-                  Image(
-                    image: AssetImage('assets/images/graph.jpg'),
-                    height: 150,
-                  )
-                ]),
-              ),
-              height: 250,
-            )
+            FutureBuilder<List<Exercice>>(
+                future: fetchExerciceBodyPart(bodyPart: 'back'),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Container(
+                      height: height,
+                      width: width,
+                      child: ListView.builder(
+                          itemCount: snapshot.data.length,
+                          itemBuilder: (context, index) {
+                            return workoutCard(snapshot.data[index].name,
+                                snapshot.data[index].gifUrl);
+                          }),
+                    );}
+                    else return Center(child:  CircularProgressIndicator());
+                })
           ],
         ),
       ),
     );
   }
+}
+
+Widget workoutCard(String name, String image) {
+  return Container(
+    child: Card(
+      color: Colors.grey[600],
+      child: Column(children: [
+        Row(children: [
+          Container(
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(image),
+              radius: 30,
+            ),
+            height: 60,
+            width: 100,
+          ),
+          Flexible(child: Text(name)),
+        ]),
+        Image(
+          image: AssetImage('assets/images/graph.jpg'),
+          height: 150,
+        )
+      ]),
+    ),
+    height: 250,
+  );
 }
