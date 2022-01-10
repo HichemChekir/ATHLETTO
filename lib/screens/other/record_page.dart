@@ -1,4 +1,4 @@
-import 'package:athletto/models/Exercices.dart';
+import 'package:athletto/models/allExercices.dart';
 import 'package:athletto/screens/other/record_workout.dart';
 import 'package:athletto/screens/other/workouts_page1.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +79,7 @@ class _record_pageState extends State<record_page> {
               width: 40,
             ),
             FutureBuilder<List<Exercice>>(
-                future: fetchExerciceBodyPart(bodyPart: 'back'),
+                future: fetchExercice(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return Container(
@@ -91,9 +91,45 @@ class _record_pageState extends State<record_page> {
                             return workoutCard(snapshot.data[index].name,
                                 snapshot.data[index].gifUrl);
                           }),
-                    );}
-                    else return Center(child:  CircularProgressIndicator());
-                })
+                    );
+                  } else
+                    return Center(child: CircularProgressIndicator());
+                }),
+            FutureBuilder<List<Exercice>>(
+                future: fetchExercice(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Container(
+                      height: height,
+                      width: width,
+                      child: ListView.builder(
+                          itemCount: snapshot.data.length,
+                          itemBuilder: (context, index) {
+                            return workoutCard(snapshot.data[index].name,
+                                snapshot.data[index].gifUrl);
+                          }),
+                    );
+                  } else
+                    return Center(child: CircularProgressIndicator());
+                }),
+            FutureBuilder<List<Exercice>>(
+              future: fetchExercice(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Container(
+                    height: height,
+                    width: width,
+                    child: ListView.builder(
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (context, index) {
+                          return workoutCard(snapshot.data[index].name,
+                              snapshot.data[index].gifUrl);
+                        }),
+                  );
+                } else
+                  return Center(child: CircularProgressIndicator());
+              },
+            ),
           ],
         ),
       ),

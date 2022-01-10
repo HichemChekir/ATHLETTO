@@ -3,16 +3,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
-Future<List<Exercice>> fetchExerciceBodyPart({
-  String bodyPart = '',
-}) async {
+Future<List<Exercice>> fetchExercice() async {
   Map<String, String> headers = {
     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
     'X-RapidAPI-Key': 'key'
   };
   var response = await get(
       Uri.parse(
-          'https://exercisedb.p.rapidapi.com/exercises/bodyPart/$bodyPart'),
+          'https://exercisedb.p.rapidapi.com/exercises/'),
       headers: headers);
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
