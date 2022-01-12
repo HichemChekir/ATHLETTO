@@ -1,12 +1,17 @@
 import 'dart:convert';
-
+import 'package:athletto/screens/auth/secrets.dart';
+import 'package:flutter_config/flutter_config.dart';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+
+
+
 
 Future<List<Exercice>> fetchExercice() async {
   Map<String, String> headers = {
     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
-    'X-RapidAPI-Key': 'key'
+    'X-RapidAPI-Key': API_Key,
   };
   var response = await get(
       Uri.parse(

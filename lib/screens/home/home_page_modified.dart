@@ -1,8 +1,10 @@
+import 'package:athletto/screens/other/record_page.dart';
+import '../other/record_page.dart';
 import '/screens/other/workouts_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import '/screens/other/record_page.dart';
+import '../other/record_page_bodypart.dart';
 
 class home_screen extends StatefulWidget {
   const home_screen({Key key}) : super(key: key);
@@ -240,7 +242,7 @@ class _home_screenState extends State<home_screen> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              workouts_page1()),
+                                              workouts_page1(nameWorkout: 'Workout1',)),
                                     );
                                   },
                                   child: item(
@@ -249,6 +251,7 @@ class _home_screenState extends State<home_screen> {
                               item('Workout3', 'assets/images/image3.jpg'),
                             ],
                             options: CarouselOptions(
+                                scrollDirection: Axis.horizontal,
                                 height: 150.0,
                                 enlargeCenterPage: true,
                                 aspectRatio: 16 / 9,

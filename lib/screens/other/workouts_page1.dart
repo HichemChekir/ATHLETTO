@@ -1,10 +1,12 @@
+import 'package:athletto/models/WorkoutDict.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'record_page.dart';
+import 'record_page_bodypart.dart';
 
 class workouts_page1 extends StatefulWidget {
-  const workouts_page1({Key key}) : super(key: key);
+  const workouts_page1({Key key, this.nameWorkout}) : super(key: key);
+  final String nameWorkout;
 
   @override
   _workouts_page1State createState() => _workouts_page1State();
@@ -35,54 +37,84 @@ class _workouts_page1State extends State<workouts_page1> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    Widget function() {
+      return ListView.builder(
+        itemCount: dict['Workout1'].length,
+        itemBuilder: (context, index) => dict['Workout1'][index],
+      );
+    }
+
+    Widget workout() {
+      SingleChildScrollView page;
+      return page = SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //spaceBetween if we want space only between
+              children: [
+                FlatButton(
+                  onPressed: () {},
+                  color: Colors.grey,
+                  child: Text('Workouts'),
+                ),
+                FlatButton(
+                  onPressed: () {},
+                  color: Colors.grey,
+                  child: Text('Records'),
+                ),
+                FlatButton(
+                  onPressed: () {},
+                  color: Colors.grey,
+                  child: Text('Correct'),
+                ),
+              ],
+            ),
+            item(widget.nameWorkout, 'assets/images/image1.jpg'),
+            SizedBox(
+              width: 40,
+            ),
+            Container(
+                width: width,
+                height: height,
+                child: ListView.builder(
+                  itemCount: dict['Workout1'].length,
+                  itemBuilder: (context, index) {
+                    print(dict['Workout1'][index]);
+                    return dict['Workout1'][index];
+                  },
+                )),
+          ],
+        ),
+      );
+
+      /*for (int i = 0; i < dict['Workout1'].length; i++){
+        page.add(dict['Workout1'][i]);
+      }*/
+    }
+
     return Scaffold(
-      backgroundColor: Colors.grey,
-      appBar: AppBar(
-        backgroundColor: Colors.grey[900],
-        title: Center(
-          child: Text(
-            'ATHLETTO',
-            style: TextStyle(
-              fontSize: 20.0,
-              color: Colors.grey[500],
+        backgroundColor: Colors.grey,
+        appBar: AppBar(
+          backgroundColor: Colors.grey[900],
+          title: Center(
+            child: Text(
+              'ATHLETTO',
+              style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.grey[500],
+              ),
             ),
           ),
         ),
-      ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //spaceBetween if we want space only between
-            children: [
-              FlatButton(
-                onPressed: () {},
-                color: Colors.grey,
-                child: Text('Workouts'),
-              ),
-              FlatButton(
-                onPressed: () {},
-                color: Colors.grey,
-                child: Text('Records'),
-              ),
-              FlatButton(
-                onPressed: () {},
-                color: Colors.grey,
-                child: Text('Correct'),
-              ),
-            ],
-          ),
-          item('Workout1', 'assets/images/image1.jpg'),
-          SizedBox(
-            width: 40,
-          ),
-          SingleChildScrollView(
-            child: CartItem(
-              key: UniqueKey(),
-              exerciseName: 'Bench Press',
-              reps_and_sets: 'N Reps: 10 | N Sets: 4',
-              exerciseImage: 'image2',
-            ),
+        body: workout());
+  }
+}
+
+/*SingleChildScrollView(
+            child: dict[],
           ),
           SizedBox(
             width: 40,
@@ -91,7 +123,8 @@ class _workouts_page1State extends State<workouts_page1> {
             child: CartItem(
               key: UniqueKey(),
               exerciseName: 'Incline Bench Press',
-              reps_and_sets: 'N Reps: 10 | N Sets: 4',
+              NumberReps: 5,
+              NumberSets: 10,
               exerciseImage: 'image2',
             ),
           ),
@@ -102,28 +135,27 @@ class _workouts_page1State extends State<workouts_page1> {
             child: CartItem(
               key: UniqueKey(),
               exerciseName: 'Dumbell Shoulder Press',
-              reps_and_sets: 'N Reps: 10 | N Sets: 4',
+              NumberReps: 5,
+              NumberSets: 10,
               exerciseImage: 'image2',
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
+*/
 
 // ignore: must_be_immutable
 class CartItem extends StatelessWidget {
   String exerciseName;
   // ignore: non_constant_identifier_names
-  String reps_and_sets;
+  int NumberReps;
+  int NumberSets;
   String exerciseImage;
 
   CartItem({
     Key key,
     this.exerciseName,
     // ignore: non_constant_identifier_names
-    this.reps_and_sets,
+    this.NumberReps,
+    this.NumberSets,
     this.exerciseImage,
   }) : super(key: key);
 
@@ -148,7 +180,7 @@ class CartItem extends StatelessWidget {
                 radius: 30,
               ),
               title: Text('$exerciseName'),
-              subtitle: Text('$reps_and_sets'),
+              subtitle: Text('N Reps: $NumberReps | N Sets: $NumberSets'),
             ),
           ],
         ),

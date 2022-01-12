@@ -1,32 +1,18 @@
 import 'package:athletto/models/ExercicesBodyPart.dart';
 import 'package:athletto/models/allExercices.dart';
-
-import 'package:athletto/screens/other/record_page_bodypart.dart';
 import 'package:athletto/screens/other/record_workout.dart';
 import 'package:athletto/screens/other/workouts_page1.dart';
 import 'package:flutter/material.dart';
 
-class record_page extends StatefulWidget {
-  const record_page({Key key}) : super(key: key);
+class record_page_bodyPart extends StatefulWidget {
+  const record_page_bodyPart({Key key, this.bodyPart}) : super(key: key);
 
+  final String bodyPart;
   @override
-  _record_pageState createState() => _record_pageState();
+  _record_page_bodyPartState createState() => _record_page_bodyPartState();
 }
 
-List<String> BP = [
-  "back",
-  "cardio",
-  "chest",
-  "lower arms",
-  "lower legs",
-  "neck",
-  "shoulders",
-  "upper arms",
-  "upper legs",
-  "waist",
-];
-
-class _record_pageState extends State<record_page> {
+class _record_page_bodyPartState extends State<record_page_bodyPart> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -52,7 +38,7 @@ class _record_pageState extends State<record_page> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => record_workout(name: 'Hi',image: 'assets/images/image2',)),
+            MaterialPageRoute(builder: (context) => record_workout()),
           );
         },
       ),
@@ -68,7 +54,7 @@ class _record_pageState extends State<record_page> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => workouts_page1(nameWorkout: 'Workout1',)),
+                      MaterialPageRoute(builder: (context) => workouts_page1()),
                     );
                   },
                   color: Colors.grey,
@@ -78,7 +64,8 @@ class _record_pageState extends State<record_page> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => record_page()),
+                      MaterialPageRoute(
+                          builder: (context) => record_page_bodyPart()),
                     );
                   },
                   color: Colors.grey,
@@ -94,35 +81,8 @@ class _record_pageState extends State<record_page> {
             SizedBox(
               width: 40,
             ),
-            // Add list of workouts
-            Container(
-              height: height,
-              width: width,
-              child: ListView.builder(
-                padding: EdgeInsetsDirectional.all(10),
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => record_page_bodyPart(bodyPart: BP[index])),
-                            );
-                          },
-                          child: item(BP[index], 'assets/images/image1.jpg')),
-                    SizedBox(
-                      height: 10,
-                    )
-                    ],
-                  );
-                },
-              ),
-            )
-            /*FutureBuilder<List<bodyPart>>(
-              future: fetchBodyPart(),
+            FutureBuilder<List<Exercice>>(
+              future: fetchExerciceBodyPart(bodyPart: widget.bodyPart),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return Container(
@@ -131,13 +91,25 @@ class _record_pageState extends State<record_page> {
                     child: ListView.builder(
                         itemCount: snapshot.data.length,
                         itemBuilder: (context, index) {
-                          return workoutCard(snapshot.data[index].back);
+                          return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => record_workout(
+                                            name: snapshot.data[index].name,
+                                            image: snapshot.data[index].gifUrl,
+                                          )),
+                                );
+                              },
+                              child: workoutCard(snapshot.data[index].name,
+                                  snapshot.data[index].gifUrl));
                         }),
                   );
                 } else
                   return Center(child: CircularProgressIndicator());
               },
-            ),*/
+            ),
           ],
         ),
       ),
@@ -161,32 +133,7 @@ Widget workoutCard(String name, String image) {
           ),
           Flexible(child: Text(name)),
         ]),
-        SizedBox(
-          height: 20,
-        )
       ]),
-    ),
-  );
-}
-
-Container item(String text, String imPath) {
-  return Container(
-    height: 200,
-    width: 300,
-    child: Center(
-      child: Text(
-        text,
-        style: TextStyle(
-          color: Colors.grey[100],
-          fontSize: 40.0,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-    decoration: BoxDecoration(
-      image: DecorationImage(image: AssetImage(imPath), fit: BoxFit.cover),
-      color: Colors.indigo,
-      borderRadius: BorderRadius.all(Radius.circular(20)),
     ),
   );
 }

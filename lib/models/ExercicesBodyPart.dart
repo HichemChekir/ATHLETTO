@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'package:athletto/screens/auth/secrets.dart';
+
 import 'allExercices.dart';
-import 'package:flutter/material.dart';
+
 import 'package:http/http.dart';
 
 Future<List<Exercice>> fetchExerciceBodyPart({
@@ -8,7 +10,7 @@ Future<List<Exercice>> fetchExerciceBodyPart({
 }) async {
   Map<String, String> headers = {
     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
-    'X-RapidAPI-Key': 'key'
+    'X-RapidAPI-Key': API_Key,
   };
   var response = await get(
       Uri.parse(
@@ -26,4 +28,3 @@ Future<List<Exercice>> fetchExerciceBodyPart({
     throw Exception('Failed to load data');
   }
 }
-
