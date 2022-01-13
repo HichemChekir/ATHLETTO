@@ -68,7 +68,9 @@ class _WorkoutFormState extends State<WorkoutForm> {
         height: 200,
         width: 1080,
         decoration: BoxDecoration(
-            image: DecorationImage(image: NetworkImage(widget.im))),
+            image: DecorationImage(image: NetworkImage(widget.im)),
+            color: Colors.white,),
+            
       ),
       SizedBox(
         height: 30,

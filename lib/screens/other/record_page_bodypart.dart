@@ -1,5 +1,7 @@
 import 'package:athletto/models/ExercicesBodyPart.dart';
 import 'package:athletto/models/allExercices.dart';
+import 'package:athletto/screens/home/home_page_modified.dart';
+import 'package:athletto/screens/other/record_page.dart';
 import 'package:athletto/screens/other/record_workout.dart';
 import 'package:athletto/screens/other/workouts_page1.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +56,7 @@ class _record_page_bodyPartState extends State<record_page_bodyPart> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => workouts_page1()),
+                      MaterialPageRoute(builder: (context) => home_screen()),
                     );
                   },
                   color: Colors.grey,
@@ -65,10 +67,10 @@ class _record_page_bodyPartState extends State<record_page_bodyPart> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => record_page_bodyPart()),
+                          builder: (context) => record_page()),
                     );
                   },
-                  color: Colors.grey,
+                  color: Colors.grey[700],
                   child: Text('Records'),
                 ),
                 FlatButton(

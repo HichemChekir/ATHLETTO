@@ -1,5 +1,6 @@
 import 'package:athletto/models/ExercicesBodyPart.dart';
 import 'package:athletto/models/allExercices.dart';
+import 'package:athletto/screens/home/home_page_modified.dart';
 
 import 'package:athletto/screens/other/record_page_bodypart.dart';
 import 'package:athletto/screens/other/record_workout.dart';
@@ -23,7 +24,7 @@ List<String> BP = [
   "shoulders",
   "upper arms",
   "upper legs",
-  "waist",
+ "waist"
 ];
 
 class _record_pageState extends State<record_page> {
@@ -33,7 +34,7 @@ class _record_pageState extends State<record_page> {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey[600],
       appBar: AppBar(
         backgroundColor: Colors.grey[900],
         title: Center(
@@ -60,36 +61,36 @@ class _record_pageState extends State<record_page> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //spaceBetween if we want space only between
-              children: [
-                FlatButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => workouts_page1(nameWorkout: 'Workout1',)),
-                    );
-                  },
-                  color: Colors.grey,
-                  child: Text('Workouts'),
-                ),
-                FlatButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => record_page()),
-                    );
-                  },
-                  color: Colors.grey,
-                  child: Text('Records'),
-                ),
-                FlatButton(
-                  onPressed: () {},
-                  color: Colors.grey,
-                  child: Text('Correct'),
-                ),
-              ],
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //spaceBetween if we want space only between
+                children: [
+                  FlatButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => home_screen()),
+                      );
+                    },
+                    color: Colors.grey,
+                    child: Text('Workouts'),
+                  ),
+                  FlatButton(
+                    onPressed: () {},
+                    color: Colors.grey[700],
+                    child: Text('Records'),
+                  ),
+                  FlatButton(
+                    onPressed: () {},
+                    color: Colors.grey,
+                    child: Text('Correct'),
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               width: 40,
@@ -112,7 +113,7 @@ class _record_pageState extends State<record_page> {
                                   builder: (context) => record_page_bodyPart(bodyPart: BP[index])),
                             );
                           },
-                          child: item(BP[index], 'assets/images/image1.jpg')),
+                          child: item(BP[index], 'assets/images/bodypart$index.jpg')),
                     SizedBox(
                       height: 10,
                     )

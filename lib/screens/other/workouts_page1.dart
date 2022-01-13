@@ -5,8 +5,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'record_page_bodypart.dart';
 
 class workouts_page1 extends StatefulWidget {
-  const workouts_page1({Key key, this.nameWorkout}) : super(key: key);
+  const workouts_page1({Key key, this.nameWorkout, this.imageWorkout}) : super(key: key);
   final String nameWorkout;
+  final String imageWorkout;
 
   @override
   _workouts_page1State createState() => _workouts_page1State();
@@ -72,20 +73,23 @@ class _workouts_page1State extends State<workouts_page1> {
                 ),
               ],
             ),
-            item(widget.nameWorkout, 'assets/images/image1.jpg'),
+            item(widget.nameWorkout, 'assets/images/'+widget.imageWorkout+'.jpg'),
             SizedBox(
               width: 40,
             ),
-            Container(
-                width: width,
-                height: height,
-                child: ListView.builder(
-                  itemCount: workout_routines[widget.nameWorkout].length,
-                  itemBuilder: (context, index) {
-                    print(workout_routines[widget.nameWorkout][index]);
-                    return workout_routines[widget.nameWorkout][index];
-                  },
-                )),
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Container(
+                  width: width,
+                  height: height * 0.58,
+                  child: ListView.builder(
+                    itemCount: workout_routines[widget.nameWorkout].length,
+                    itemBuilder: (context, index) {
+                      print(workout_routines[widget.nameWorkout][index]);
+                      return workout_routines[widget.nameWorkout][index];
+                    },
+                  )),
+            ),
           ],
         ),
       );
@@ -176,7 +180,7 @@ class CartItem extends StatelessWidget {
           children: <Widget>[
             ListTile(
               leading: CircleAvatar(
-                backgroundImage: AssetImage("assets/images/$exerciseImage.jpg"),
+                backgroundImage: NetworkImage('$exerciseImage'),
                 radius: 30,
               ),
               title: Text('$exerciseName'),

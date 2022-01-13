@@ -20,9 +20,10 @@ class _home_screenState extends State<home_screen> {
       child: Center(
         child: Text(
           text,
+          textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.grey[100],
-            fontSize: 40.0,
+            fontSize: 35.0,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -38,7 +39,7 @@ class _home_screenState extends State<home_screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.grey[600],
         appBar: AppBar(
           backgroundColor: Colors.grey[900],
           title: Center(
@@ -54,37 +55,40 @@ class _home_screenState extends State<home_screen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //spaceBetween if we want space only between
-                children: [
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => workouts_page1()),
-                      );
-                    },
-                    color: Colors.grey,
-                    child: Text('Workouts'),
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => record_page()),
-                      );
-                    },
-                    color: Colors.grey,
-                    child: Text('Records'),
-                  ),
-                  FlatButton(
-                    onPressed: () {},
-                    color: Colors.grey,
-                    child: Text('Correct'),
-                  ),
-                ],
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //spaceBetween if we want space only between
+                  children: [
+                    FlatButton(
+                      onPressed: () {},
+                      color: Colors.grey[700],
+                      child: Text('Workouts'),
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => record_page()),
+                        );
+                      },
+                      color: Colors.grey,
+                      child: Text('Records'),
+                    ),
+                    FlatButton(
+                      onPressed: () {},
+                      color: Colors.grey,
+                      child: Text('Correct'),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 10,
               ),
               Column(
                 children: [
@@ -110,9 +114,47 @@ class _home_screenState extends State<home_screen> {
                           ),
                           CarouselSlider(
                             items: [
-                              item('Workout1', 'assets/images/image1.jpg'),
-                              item('Workout2', 'assets/images/image2.jpg'),
-                              item('Workout3', 'assets/images/image3.jpg'),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => workouts_page1(
+                                        nameWorkout: 'Biceps-Jambes',
+                                        imageWorkout: 'image5',
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: item('Biceps-Jambes',
+                                    'assets/images/image6.jpg'),
+                              ),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => workouts_page1(
+                                          nameWorkout: 'Dos – Triceps',
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: item('Dos – Triceps',
+                                      'assets/images/image1.jpg')),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => workouts_page1(
+                                                nameWorkout:
+                                                    'Pectoraux-Epaules',
+                                              )),
+                                    );
+                                  },
+                                  child: item('Pectoraux-Epaules',
+                                      'assets/images/image1.jpg')),
                             ],
                             options: CarouselOptions(
                                 height: 150.0,
@@ -152,9 +194,47 @@ class _home_screenState extends State<home_screen> {
                           ),
                           CarouselSlider(
                             items: [
-                              item('Workout1', 'assets/images/image1.jpg'),
-                              item('Workout2', 'assets/images/image2.jpg'),
-                              item('Workout3', 'assets/images/image3.jpg'),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => workouts_page1(
+                                                nameWorkout:
+                                                    'Pectoraux – Épaules – Triceps',
+                                                imageWorkout: 'image4',
+                                              )),
+                                    );
+                                  },
+                                  child: item('Pectoraux – Épaules – Triceps',
+                                      'assets/images/image4.jpg')),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => workouts_page1(
+                                                nameWorkout:
+                                                    'Dos – Biceps – Jambes',
+                                                    imageWorkout: 'image2',
+                                              )),
+                                    );
+                                  },
+                                  child: item('Dos – Biceps – Jambes',
+                                      'assets/images/image1.jpg')),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => workouts_page1(
+                                                nameWorkout:
+                                                    'Pectoraux-Epaules',
+                                              )),
+                                    );
+                                  },
+                                  child: item('Pectoraux-Epaules',
+                                      'assets/images/image1.jpg')),
                             ],
                             options: CarouselOptions(
                                 height: 150.0,
@@ -194,9 +274,45 @@ class _home_screenState extends State<home_screen> {
                           ),
                           CarouselSlider(
                             items: [
-                              item('Workout1', 'assets/images/image1.jpg'),
-                              item('Workout2', 'assets/images/image2.jpg'),
-                              item('Workout3', 'assets/images/image3.jpg'),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => workouts_page1(
+                                                nameWorkout:
+                                                    'Pectoraux-Epaules',
+                                              )),
+                                    );
+                                  },
+                                  child: item('Pectoraux-Epaules',
+                                      'assets/images/image1.jpg')),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => workouts_page1(
+                                                nameWorkout:
+                                                    'Pectoraux-Epaules',
+                                              )),
+                                    );
+                                  },
+                                  child: item('Pectoraux-Epaules',
+                                      'assets/images/image1.jpg')),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => workouts_page1(
+                                                nameWorkout:
+                                                    'Pectoraux-Epaules',
+                                              )),
+                                    );
+                                  },
+                                  child: item('Pectoraux-Epaules',
+                                      'assets/images/image1.jpg')),
                             ],
                             options: CarouselOptions(
                                 height: 150.0,
@@ -241,14 +357,41 @@ class _home_screenState extends State<home_screen> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              workouts_page1(nameWorkout: 'Workout1',)),
+                                          builder: (context) => workouts_page1(
+                                                nameWorkout:
+                                                    'Pectoraux-Epaules',
+                                              )),
                                     );
                                   },
-                                  child: item(
-                                      'Workout1', 'assets/images/image1.jpg')),
-                              item('Workout2', 'assets/images/image2.jpg'),
-                              item('Workout3', 'assets/images/image3.jpg'),
+                                  child: item('Pectoraux-Epaules',
+                                      'assets/images/image1.jpg')),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => workouts_page1(
+                                                nameWorkout:
+                                                    'Pectoraux-Epaules',
+                                              )),
+                                    );
+                                  },
+                                  child: item('Pectoraux-Epaules',
+                                      'assets/images/image1.jpg')),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => workouts_page1(
+                                        nameWorkout: 'Pectoraux-Epaules',
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: item('Pectoraux-Epaules',
+                                    'assets/images/image1.jpg'),
+                              ),
                             ],
                             options: CarouselOptions(
                                 scrollDirection: Axis.horizontal,
