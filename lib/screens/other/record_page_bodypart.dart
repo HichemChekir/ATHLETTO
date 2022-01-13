@@ -34,16 +34,6 @@ class _record_page_bodyPartState extends State<record_page_bodyPart> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black,
-        child: Icon(Icons.add),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => record_workout()),
-          );
-        },
-      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(

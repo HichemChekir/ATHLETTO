@@ -47,16 +47,6 @@ class _record_pageState extends State<record_page> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black,
-        child: Icon(Icons.add),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => record_workout(name: 'Hi',image: 'assets/images/image2',)),
-          );
-        },
-      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(

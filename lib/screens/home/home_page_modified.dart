@@ -136,6 +136,7 @@ class _home_screenState extends State<home_screen> {
                                       MaterialPageRoute(
                                         builder: (context) => workouts_page1(
                                           nameWorkout: 'Dos – Triceps',
+                                          imageWorkout: 'image1',
                                         ),
                                       ),
                                     );
@@ -150,11 +151,12 @@ class _home_screenState extends State<home_screen> {
                                           builder: (context) => workouts_page1(
                                                 nameWorkout:
                                                     'Pectoraux-Epaules',
+                                                imageWorkout: 'image13',
                                               )),
                                     );
                                   },
                                   child: item('Pectoraux-Epaules',
-                                      'assets/images/image1.jpg')),
+                                      'assets/images/image13.jpg')),
                             ],
                             options: CarouselOptions(
                                 height: 150.0,
@@ -184,7 +186,7 @@ class _home_screenState extends State<home_screen> {
                           Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              'Chest',
+                              'Routine 1',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.0,
@@ -199,11 +201,12 @@ class _home_screenState extends State<home_screen> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => workouts_page1(
-                                                nameWorkout:
-                                                    'Pectoraux – Épaules – Triceps',
-                                                imageWorkout: 'image4',
-                                              )),
+                                        builder: (context) => workouts_page1(
+                                          nameWorkout:
+                                              'Pectoraux – Épaules – Triceps',
+                                          imageWorkout: 'image4',
+                                        ),
+                                      ),
                                     );
                                   },
                                   child: item('Pectoraux – Épaules – Triceps',
@@ -213,15 +216,15 @@ class _home_screenState extends State<home_screen> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => workouts_page1(
-                                                nameWorkout:
-                                                    'Dos – Biceps – Jambes',
-                                                    imageWorkout: 'image2',
-                                              )),
+                                        builder: (context) => workouts_page1(
+                                          nameWorkout: 'Dos – Biceps – Jambes',
+                                          imageWorkout: 'image2',
+                                        ),
+                                      ),
                                     );
                                   },
                                   child: item('Dos – Biceps – Jambes',
-                                      'assets/images/image1.jpg')),
+                                      'assets/images/image2.jpg')),
                               GestureDetector(
                                   onTap: () {
                                     Navigator.push(
@@ -264,7 +267,7 @@ class _home_screenState extends State<home_screen> {
                           Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              'Arms',
+                              'Routine 2',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18.0,
@@ -274,127 +277,132 @@ class _home_screenState extends State<home_screen> {
                           ),
                           CarouselSlider(
                             items: [
-                              GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => workouts_page1(
-                                                nameWorkout:
-                                                    'Pectoraux-Epaules',
-                                              )),
-                                    );
-                                  },
-                                  child: item('Pectoraux-Epaules',
-                                      'assets/images/image1.jpg')),
-                              GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => workouts_page1(
-                                                nameWorkout:
-                                                    'Pectoraux-Epaules',
-                                              )),
-                                    );
-                                  },
-                                  child: item('Pectoraux-Epaules',
-                                      'assets/images/image1.jpg')),
-                              GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => workouts_page1(
-                                                nameWorkout:
-                                                    'Pectoraux-Epaules',
-                                              )),
-                                    );
-                                  },
-                                  child: item('Pectoraux-Epaules',
-                                      'assets/images/image1.jpg')),
-                            ],
-                            options: CarouselOptions(
-                                height: 150.0,
-                                enlargeCenterPage: true,
-                                aspectRatio: 16 / 9,
-                                autoPlay: false,
-                                autoPlayCurve: Curves.fastLinearToSlowEaseIn,
-                                enableInfiniteScroll: false,
-                                autoPlayAnimationDuration:
-                                    Duration(milliseconds: 2000),
-                                viewportFraction: 0.6),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Container(
-                    height: 200.0,
-                    decoration: BoxDecoration(
-                      color: Colors.black12,
-                    ),
-                    child: Expanded(
-                      child: ListView(
-                        padding: EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 8.0),
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: Text(
-                              'Legs',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18.0,
-                                letterSpacing: 1.0,
-                              ),
-                            ),
-                          ),
-                          CarouselSlider(
-                            items: [
-                              GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => workouts_page1(
-                                                nameWorkout:
-                                                    'Pectoraux-Epaules',
-                                              )),
-                                    );
-                                  },
-                                  child: item('Pectoraux-Epaules',
-                                      'assets/images/image1.jpg')),
-                              GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => workouts_page1(
-                                                nameWorkout:
-                                                    'Pectoraux-Epaules',
-                                              )),
-                                    );
-                                  },
-                                  child: item('Pectoraux-Epaules',
-                                      'assets/images/image1.jpg')),
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => workouts_page1(
-                                        nameWorkout: 'Pectoraux-Epaules',
+                                        nameWorkout: 'Biceps-Jambes',
+                                        imageWorkout: 'image5',
                                       ),
                                     ),
                                   );
                                 },
-                                child: item('Pectoraux-Epaules',
-                                    'assets/images/image1.jpg'),
+                                child: item('Biceps-Jambes',
+                                    'assets/images/image6.jpg'),
                               ),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => workouts_page1(
+                                          nameWorkout: 'Dos – Triceps',
+                                          imageWorkout: 'image11',
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: item('Dos – Triceps',
+                                      'assets/images/image11.jpg')),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => workouts_page1(
+                                                nameWorkout:
+                                                    'Pectoraux-Epaules',
+                                                imageWorkout: 'image13',
+                                              )),
+                                    );
+                                  },
+                                  child: item('Pectoraux-Epaules',
+                                      'assets/images/image13.jpg')),
                             ],
                             options: CarouselOptions(
-                                scrollDirection: Axis.horizontal,
+                                height: 150.0,
+                                enlargeCenterPage: true,
+                                aspectRatio: 16 / 9,
+                                autoPlay: false,
+                                autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+                                enableInfiniteScroll: false,
+                                autoPlayAnimationDuration:
+                                    Duration(milliseconds: 2000),
+                                viewportFraction: 0.6),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    height: 200.0,
+                    decoration: BoxDecoration(
+                      color: Colors.black12,
+                    ),
+                    child: Expanded(
+                      child: ListView(
+                        padding: EdgeInsets.fromLTRB(8.0, 10.0, 8.0, 8.0),
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: Text(
+                              'Routine 3',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18.0,
+                                letterSpacing: 1.0,
+                              ),
+                            ),
+                          ),
+                          CarouselSlider(
+                            items: [
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => workouts_page1(
+                                          nameWorkout:
+                                              'Pectoraux – Épaules – Triceps',
+                                          imageWorkout: 'image4',
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: item('Pectoraux – Épaules – Triceps',
+                                      'assets/images/image4.jpg')),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => workouts_page1(
+                                          nameWorkout: 'Dos – Biceps – Jambes',
+                                          imageWorkout: 'image2',
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: item('Dos – Biceps – Jambes',
+                                      'assets/images/image2.jpg')),
+                              GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => workouts_page1(
+                                                nameWorkout:
+                                                    'Pectoraux-Epaules',
+                                              )),
+                                    );
+                                  },
+                                  child: item('Pectoraux-Epaules',
+                                      'assets/images/image1.jpg')),
+                            ],
+                            options: CarouselOptions(
                                 height: 150.0,
                                 enlargeCenterPage: true,
                                 aspectRatio: 16 / 9,
