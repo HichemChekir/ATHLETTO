@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 List<Widget> Acolumn;
 
+List<double>weightL, repsL;
+
 class record_workout extends StatefulWidget {
   const record_workout({Key key, this.name, this.image}) : super(key: key);
 
@@ -181,7 +183,10 @@ class _WorkoutFormState extends State<WorkoutForm> {
               const SnackBar(content: Text('Processing Data')),
             );
           }
+          _formKey.currentState.save();
+          print(weightL);
         },
+        
         child: const Text('Submit'),
       ),
     ];
@@ -215,9 +220,15 @@ Widget Show(int n) {
       width: 150,
       child: SpinBox(
         min: 0,
-        max: 300,
-        value: 1,
-        onChanged: (value) => weight = value,
+        max: 1000,
+        value: 0,
+        validator: (value) {
+          if (value == 0) {
+            return "empty";
+          }
+          ;
+        },
+        onChanged: (value) => weightL.add(value),
       ),
     ),
     SizedBox(
@@ -229,8 +240,14 @@ Widget Show(int n) {
       child: SpinBox(
         min: 0,
         max: 50,
-        value: 1,
-        onChanged: (value) => reps = value,
+        value: 0,
+        validator: (value) {
+          if (value == 0) {
+            return "empty";
+          }
+          ;
+        },
+        onChanged: (value) => repsL.add(value),
       ),
     ),
   ]);
