@@ -4,8 +4,6 @@ import 'package:intl/intl.dart';
 import 'package:flutter_spinbox/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-
 List<Widget> Acolumn;
 
 class record_workout extends StatefulWidget {
@@ -59,6 +57,10 @@ class _WorkoutFormState extends State<WorkoutForm> {
   Column This_column;
   @override
   Widget build(BuildContext context) {
+    ListView workoutSets;
+    List<List<int>> Sets;
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     Acolumn = [
       Container(
         height: 200,
@@ -125,7 +127,9 @@ class _WorkoutFormState extends State<WorkoutForm> {
             height: 50,
             child: RaisedButton(
               onPressed: () {
-                Acolumn.add(Show(1));
+                SetState() {
+                  Acolumn.add(Show(1));
+                }
               },
               shape: CircleBorder(side: BorderSide.none),
               child: Text(
@@ -181,7 +185,7 @@ class _WorkoutFormState extends State<WorkoutForm> {
         child: const Text('Submit'),
       ),
     ];
-    
+
     return Form(
         key: _formKey,
         child: This_column = Column(
@@ -231,4 +235,3 @@ Widget Show(int n) {
     ),
   ]);
 }
-

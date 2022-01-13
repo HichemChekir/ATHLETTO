@@ -41,8 +41,8 @@ class _workouts_page1State extends State<workouts_page1> {
     double width = MediaQuery.of(context).size.width;
     Widget function() {
       return ListView.builder(
-        itemCount: dict['Workout1'].length,
-        itemBuilder: (context, index) => dict['Workout1'][index],
+        itemCount: workout_routines[widget.nameWorkout].length,
+        itemBuilder: (context, index) => workout_routines[widget.nameWorkout][index],
       );
     }
 
@@ -80,10 +80,10 @@ class _workouts_page1State extends State<workouts_page1> {
                 width: width,
                 height: height,
                 child: ListView.builder(
-                  itemCount: dict['Workout1'].length,
+                  itemCount: workout_routines[widget.nameWorkout].length,
                   itemBuilder: (context, index) {
-                    print(dict['Workout1'][index]);
-                    return dict['Workout1'][index];
+                    print(workout_routines[widget.nameWorkout][index]);
+                    return workout_routines[widget.nameWorkout][index];
                   },
                 )),
           ],
